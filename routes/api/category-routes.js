@@ -5,23 +5,27 @@ const { Category, Product } = require('../../models');
 
 router.get('/', async (req, res) => {
   // find all categories findAll - takes time to get to db and return data
+    // be sure to include its associated Products
   try {
   const category = await Category.findAll({});
   res.json(category);
 } catch(err) {
   console.log("Hello World");
-
 if(err) throw new Error(err);
 }
-  // be sure to include its associated Products
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find one category by its `id` value findbyPK
-  res.send("Hello Laurel!")
-
   // be sure to include its associated Products
-});
+  try {
+    const category = await Category.findByPk({id});
+    res.json(category);
+  } catch(err) {
+    console.log("Hello World");
+  if(err) throw new Error(err);
+  }
+  });
 
 router.post('/', (req, res) => {
   // create a new category
