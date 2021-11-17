@@ -13,7 +13,7 @@ Product.belongsTo(Category, {
 
 // Categories have many Products  Has Many: Product holds foreign key
 Category.hasMany(Product, { 
-  foreignKey: "category_id"
+  foreignKey: "product_id"
 });
 // Products belongToMany Tags (through ProductTag). BelongsToMany: I think foreign keys go on Product and Tag (A/B)
 Product.belongsToMany(Tag, {through: ProductTag }, {
