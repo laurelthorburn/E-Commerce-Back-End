@@ -18,8 +18,9 @@ if(err) throw new Error(err);
 router.get('/:id', async (req, res) => {
   // find one category by its `id` value findbyPK
   // be sure to include its associated Products
+  //can i capture the :id entered and store in a variable and then pass that variable through?
   try {
-    const category = await Category.findByPk({id});
+    const category = await Category.findByPk(1); //what variable goes here to capture the id
     res.json(category);
   } catch(err) {
     console.log("Hello World");
