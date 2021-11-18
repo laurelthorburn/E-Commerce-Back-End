@@ -29,9 +29,18 @@ router.get('/:id', async (req, res) => {
   });
 
 router.post('/', (req, res) => {
-  // create a new category
-  console.log(req.body);
-  res.send(req.body); //want to send req.body to db and essentially. the req.body has to match the model of the db
+  // // create a new category
+  // console.log(req.body);
+  // res.send(req.body); //want to send req.body to db and essentially. the req.body has to match the model of the db
+  Category.create({
+    category_name: req.body.category_name
+  })
+  .then((netCategory) => {
+    res.json(netCategory);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
 });
 
 router.put('/:id', (req, res) => {
