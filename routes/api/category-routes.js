@@ -7,10 +7,10 @@ router.get('/', async (req, res) => {
   // find all categories findAll - takes time to get to db and return data
     // be sure to include its associated Products
   try {
-  const category = await Category.findAll({});
+  const category = await Category.findAll({include: [{ model: Product }]});
   res.json(category);
 } catch(err) {
-  console.log("Hello World");
+  console.log("Hello Error");
 if(err) throw new Error(err);
 }
 });
@@ -18,26 +18,25 @@ if(err) throw new Error(err);
 router.get('/:id', async (req, res) => {
   // find one category by its `id` value findbyPK
   // be sure to include its associated Products
-  // try {
-  //   const category = await Category.findByPk(req.params.id, {
-  //     include: [ { model: Product }], //products returns an empty array
-  //   });
+  try {
+    const category = await Category.findByPk(req.params.id, {include: [{ model: Product }]});
+    
+      
+    if (!category) {
+      res.status(404).json({ message: 'No category found with this id! You should create one :)' });
+      return;
+    }
 
-  //   if (!category) {
-  //     res.status(404).json({ message: 'No reader found with that id!' });
-  //     return;
-  //   }
+    res.json(category);
 
-  //   res.status(200).json(category);
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
-});
+  } catch(err) {
+    console.log("Hello Error");
+  if(err) throw new Error(err);
+  }
+  });
 
 router.post('/', (req, res) => {
   // // create a new category
-  // console.log(req.body);
-  // res.send(req.body); //want to send req.body to db and essentially. the req.body has to match the model of the db
   Category.create({
     category_name: req.body.category_name
   })
@@ -49,20 +48,31 @@ router.post('/', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a category by its `id` value
+  try {
+    const category = await Category.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  }) 
+  res.json(category)
+} catch(err) {
+  console.log("Hello Error");
+if(err) throw new Error(err);
+}
 });
 
 router.delete('/:id', async (req, res) => {
   try {
-    const category = await Reader.destroy({
+    const category = await Category.destroy({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
 
     if (!category) {
-      res.status(404).json({ message: 'No reader found with that id!' });
+      res.status(404).json({ message: 'No category found with this id! Sad day!' });
       return;
     }
 
