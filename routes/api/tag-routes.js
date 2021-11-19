@@ -47,6 +47,27 @@ router.post('/', async (req, res) => {
     res.json(err);
   });
 });
+// Tag.create(req.body)
+// .then((tag) => {
+//   // if there's tag tags, we need to create pairings to bulk create in the ProductTag model
+//   if (req.body.tagIds.length) {
+//     const productTagIdArr = req.body.tagIds.map((tag_id) => {
+//       return {
+//         product_id: product.id,
+//         tag_id,
+//       };
+//     });
+//     return ProductTag.bulkCreate(productTagIdArr);
+//   }
+//   // if no product tags, just respond
+//   res.status(200).json(tag);
+// })
+// .then((productTagIds) => res.status(200).json(productTagIds))
+// .catch((err) => {
+//   console.log(err);
+//   res.status(400).json(err);
+// });
+// });
 
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
