@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const tag = await Tag.findAll({});
     res.json(tag);
   } catch(err) {
-    console.log("Hello World");
+    console.log("Hello Error");
   if(err) throw new Error(err);
   }
   });
