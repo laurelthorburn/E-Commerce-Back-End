@@ -51,20 +51,20 @@ THEN I am able to successfully create, update, and delete data in my database
 ## Installation
 * Clone the repository using:
 ```
-git clone https://github.com/laurelthorburn/Employee-Tracker.git
+git clone https://github.com/laurelthorburn/E-Commerce-Back-End.git
 ```
 * Ensure you are in the current working directory
 * Open terminal in working directory and type:
 ```
 npm init
 ```
-* Install dependencies (inquirer, mysql2, dotenv, and figlet) by opening the terminal (ctrl + j on windows) and running:
+* Install dependencies (inquirer, mysql2, dotenv, and sequelize) by opening the terminal (ctrl + j on windows) and running:
 ```
 npm install
 ```
-OR each of the following (preferred method in order to ensure all required dependencies are installed):
+OR each of the following:
 ```
-npm install inquirer || npm install mysql2 || npm install dotenv || npm install figlet
+npm install inquirer || npm install mysql2 || npm install dotenv || npm install sequelize
 ```
 
 <a name="usagesection"></a>
@@ -77,10 +77,12 @@ mysql -u root -p
 ```
 SOURCE schema.sql || SOURCE seeds.sql
 ```
-* Open index.js in the integrated terminal and type:
+* Open root folder in the integrated terminal and type in the following order:
 ```
-node index.js
+npm run seed
+npm run watch
 ```
+* Open Insomnia and enter the correct HTTP method (i.e., GET, POST, PUT, or DELETE) and the correct URL.
 * Enjoy!
 
 <a name="licensesection"></a>
@@ -123,7 +125,7 @@ git push origin yourname-branch
   
   <a name="videosection"></a>
 ## Video
-   Video Link: https://drive.google.com/file/d/1-uhkW5Y9-vKA4qRF6Kkk9C1Y7vyxX09Y/view?usp=sharing
+   Video Link: COMING SOON
 
   <a name="picsection"></a>
   ## Screenshots
