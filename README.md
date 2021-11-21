@@ -129,9 +129,9 @@ git push origin yourname-branch
 
   <a name="picsection"></a>
   ## Screenshots
-  ![Screenshot of initiating MYSQL](./assets/media/screenshot1.png)
-  ![Screenshot of logging into MySQL](./assets/media/screenshot2.png)
-  ![Screenshot of initiating Index.JS](./assets/media/screenshot3.png)
+  ![Screenshot of initiating MYSQL](./media/screenshot1.png)
+  ![Screenshot of logging into MySQL](./media/screenshot2.png)
+  ![Screenshot of initiating Index.JS](./media/screenshot3.png)
 
   <a name="linksection"></a>
   ## Links
