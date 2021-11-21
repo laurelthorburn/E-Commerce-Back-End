@@ -125,7 +125,7 @@ git push origin yourname-branch
   
   <a name="videosection"></a>
 ## Video
-   Video Link: COMING SOON
+   Video Link: https://drive.google.com/file/d/19TGTg83lLx4pnruLmbYu221njSLdIGDm/view?usp=sharing
 
   <a name="picsection"></a>
   ## Screenshots
