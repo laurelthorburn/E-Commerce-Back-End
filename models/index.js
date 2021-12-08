@@ -18,12 +18,12 @@ Category.hasMany(Product, {
 });
 // Products belongToMany Tags (through ProductTag). BelongsToMany: I think foreign keys go on Product and Tag (A/B)
 Product.belongsToMany(Tag, {through: ProductTag }, {
-  foreignKey: "ProductTag_id"
+  foreignKey: "product_id",
 });
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {through: ProductTag}, {
-  foreignKey: "TagProduct_id"
+  foreignKey: "tag_id",
 });
 module.exports = {
   Product,
